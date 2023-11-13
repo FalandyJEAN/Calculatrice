@@ -5,10 +5,9 @@
 }
 body{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100vh;
     background-color: slategray;
+    align-items: center;
+    justify-content: center;
 }
 
 #calculatrice{
