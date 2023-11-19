@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     const touches = [...document.querySelectorAll(".bouton")]
     const listeKeycode = touches.map(touche => touche.dataset.key)
+    document.addEventListener("keydown",(e) => console.log(e))
 
 
 
-
-    // Obtenez tous les boutons
+    
     document.querySelectorAll('.bouton').forEach(function (button) {
         button.addEventListener('click', function () {
             const audio = button.getAttribute('data-audio')
