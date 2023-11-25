@@ -1,21 +1,24 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const touches = [...document.querySelectorAll(".bouton")]
-    const listeKeycode = touches.map(touche => touche.dataset.key)
-    document.addEventListener("keydown",(e) => console.log(e))
+    let ecran = document.getElementById("ecran")
+    const son = document.getElementById("son")
 
+    document.addEventListener("keydown", (e) => {
+        const touchePressee = touches.find(touche => touche.dataset.key === e.key)
+        if (touchePressee !== undefined) {
+            ecran.textContent += touchePressee.textContent
+        }
+    })
 
-
-    
-    document.querySelectorAll('.bouton').forEach(function (button) {
+    touches.forEach(function (button) {
         button.addEventListener('click', function () {
-            const audio = button.getAttribute('data-audio')
-            playSound(audio, 5.5)
+            ecran.textContent += button.textContent
+            playSound(son, 5.5)
         })
     })
 })
 
-
-function playSound(audio, playbackRate) {
-    son.playbackRate = playbackRate
-    son.play(audio)
+function playSound(audioElement, playbackRate) {
+    audioElement.playbackRate = playbackRate
+    audioElement.play()
 }
